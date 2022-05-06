@@ -13,5 +13,9 @@
         "createElement"
     ],
     "author": "me@onuruyar.com",
-    "license": "MIT"
+    "license": "MIT",
+    "exports": {
+        "import": "tiit.js",
+        "require": "./tiit.cjs"
+    }
 }

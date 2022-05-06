@@ -125,7 +125,7 @@ const tags = [
     "xmp",
 ];
 
-export function element(tag, attrs, ...children) {
+function element(tag, attrs, ...children) {
     const el = document.createElement(tag);
     if (attrs) {
         Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
@@ -136,7 +136,7 @@ export function element(tag, attrs, ...children) {
 
 const camel = (kebab) => kebab.toString().replace(/(-[a-z,0-9]{1})/g, (_, match) => match[1].toUpperCase());
 
-export default (tag) => Object.defineProperty(globalThis, camel(tag), { value: element.bind(null, tag) });
+const tiit = (tag) => Object.defineProperty(globalThis, camel(tag), { value: element.bind(null, tag) });
 
 const api = {};
 tags.forEach((tag) => {
@@ -144,3 +144,5 @@ tags.forEach((tag) => {
 });
 
 Object.defineProperties(globalThis, api);
+tiit.element = element;
+globalThis.tiit = tiit;

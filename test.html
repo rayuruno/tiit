@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <head>
-    <script src="tiit.js"></script>
-
-    <script>
+    <script src="tiit.cjs"></script>
+    <!-- <script type="module">
+        import tiit, { element } from "./tiit.js";
         const TAGS = [
             "html",
             "base",
@@ -134,5 +134,9 @@
             console.assert(globalThis[tag]({ id: "1" }));
             console.assert(globalThis[tag]({ id: "1" }, button()));
         });
-    </script>
+        tiit("x-custom");
+        console.assert("x-custom" === xCustom().localName);
+        const xxx = element("X-DODO");
+        console.assert("x-dodo" === xxx.localName);
+    </script> -->
 </head>
