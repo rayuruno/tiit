@@ -134,11 +134,9 @@ const tags = [
     "xmp",
 ];
 
-const api = tags.reduce((api, tag) => {
-    api[tag] = element.bind(null, tag);
-    return api;
-}, {});
+const api = {};
+tags.forEach((tag) => {
+    api[tag] = { value: element.bind(null, tag) };
+});
 
-Object.freeze(api);
-
-Object.assign(globalThis, api);
+Object.defineProperties(globalThis, api);
