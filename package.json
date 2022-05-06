@@ -1,0 +1,17 @@
+{
+    "name": "tiit",
+    "version": "1.0.0",
+    "description": "html tags but less",
+    "main": "tiit.js",
+    "scripts": {
+        "test": "open test.html"
+    },
+    "keywords": [
+        "html",
+        "js",
+        "dom",
+        "createElement"
+    ],
+    "author": "me@onuruyar.com",
+    "license": "MIT"
+}
