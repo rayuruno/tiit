@@ -1,10 +1,6 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
 const camel = (kebab) => kebab.toString().replace(/(-[a-z,0-9]{1})/g, (_, match) => match[1].toUpperCase());
 
-const tags = [
+export const tags = [
     "html",
     "base",
     "head",
@@ -131,7 +127,7 @@ const tags = [
     "xmp",
 ];
 
-function element(tag, attrs, ...children) {
+export function element(tag, attrs, ...children) {
     const el = document.createElement(tag);
     if (attrs) {
         Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
@@ -140,7 +136,7 @@ function element(tag, attrs, ...children) {
     return el;
 }
 
-function register(tag) {
+export function register(tag) {
     return Object.defineProperty(globalThis, camel(tag), { value: element.bind(null, tag) });
 }
 
@@ -150,7 +146,3 @@ tags.forEach((tag) => {
 });
 
 Object.defineProperties(globalThis, api);
-
-exports.element = element;
-exports.register = register;
-exports.tags = tags;

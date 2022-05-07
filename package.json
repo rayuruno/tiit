@@ -2,7 +2,11 @@
     "name": "@tiib/tiit",
     "version": "1.0.0",
     "description": "html tags but less",
-    "main": "tiit.js",
+    "main": "tiit.mjs",
+    "browser": "tiit.js",
+    "scripts": {
+        "bundle": "rollup -c"
+    },
     "keywords": [
         "html",
         "js",
@@ -12,7 +16,10 @@
     "author": "me@onuruyar.com",
     "license": "MIT",
     "exports": {
-        "import": "tiit.js",
+        "import": "./tiit.mjs",
         "require": "./tiit.cjs"
+    },
+    "devDependencies": {
+        "@open-wc/testing": "*"
     }
 }
