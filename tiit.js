@@ -1,4 +1,6 @@
-const tags = [
+const camel = (kebab) => kebab.toString().replace(/(-[a-z,0-9]{1})/g, (_, match) => match[1].toUpperCase());
+
+export const tags = [
     "html",
     "base",
     "head",
@@ -133,8 +135,6 @@ export function element(tag, attrs, ...children) {
     el.append(...children);
     return el;
 }
-
-const camel = (kebab) => kebab.toString().replace(/(-[a-z,0-9]{1})/g, (_, match) => match[1].toUpperCase());
 
 export default (tag) => Object.defineProperty(globalThis, camel(tag), { value: element.bind(null, tag) });
 
