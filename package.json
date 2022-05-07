@@ -25,8 +25,5 @@
         "tiit.js",
         "package.json",
         "README.md"
-    ],
-    "devDependencies": {
-        "@open-wc/testing": "*"
-    }
+    ]
 }
