@@ -108,6 +108,7 @@ export const tags = [
     "element",
     "shadow",
     "template",
+    "slot",
     "acronym",
     "applet",
     "basefont",
