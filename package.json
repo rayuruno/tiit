@@ -19,6 +19,13 @@
         "import": "./tiit.mjs",
         "require": "./tiit.cjs"
     },
+    "files": [
+        "tiit.cjs",
+        "tiit.mjs",
+        "tiit.js",
+        "package.json",
+        "README.md"
+    ],
     "devDependencies": {
         "@open-wc/testing": "*"
     }
