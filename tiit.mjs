@@ -128,10 +128,24 @@ export const tags = [
     "xmp",
 ];
 
+const elements = {};
+
 export function element(tag, attrs, ...children) {
-    const el = document.createElement(tag);
+    let el;
+    if (elements[tag]) {
+        el = elements[tag].cloneNode();
+    } else {
+        el = document.createElement(tag);
+        elements[tag] = el;
+    }
     if (attrs) {
-        Object.entries(attrs).forEach(([k, v]) => el.setAttribute(k, v));
+        Object.entries(attrs).forEach(([k, v]) => {
+            if (k.startsWith("on")) {
+                el.addEventListener(k.substring(2), v);
+            } else {
+                el.setAttribute(k, v);
+            }
+        });
     }
     el.append(...children);
     return el;

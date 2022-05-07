@@ -1,23 +1,33 @@
 import { tags, element, register } from "./tiit.mjs";
-const { assert } = console;
+import { expect } from "@open-wc/testing";
 
 describe("tags", () => {
     tags.forEach((tag) => {
-        it("works without arguments", () => assert(globalThis[tag]()));
-        it("works with atrs", () => assert(globalThis[tag]({ id: "1" })));
-        it("works with children", () => assert(globalThis[tag]({ id: "1" }, button())));
+        it("works without arguments", () => expect(globalThis[tag]()).to.be.ok);
+        it("works with atrs", () => expect(globalThis[tag]({ id: "1" })).to.be.ok);
+        it("works with children", () => expect(globalThis[tag]({ id: "1" }, button())).to.be.ok);
+    });
+
+    it("calls addListener for on* attrs", (done) => {
+        button({
+            onclick() {
+                expect(this.hasAttribute("onclick")).to.be.false;
+                expect(this).to.be.instanceOf(HTMLButtonElement);
+                done();
+            },
+        }).click();
     });
 });
 
 describe("register", () => {
     it("registers (custom) tag", () => {
         register("x-custom");
-        assert("x-custom" === xCustom().localName);
+        expect(xCustom().localName).to.eq("x-custom");
     });
 });
 
 describe("element", () => {
     it("returns instance of a html element", async () => {
-        assert(element("button") instanceof HTMLButtonElement);
+        expect(element("button")).to.be.instanceOf(HTMLButtonElement);
     });
 });
