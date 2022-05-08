@@ -31,3 +31,10 @@ describe("element", () => {
         expect(element("button")).to.be.instanceOf(HTMLButtonElement);
     });
 });
+
+describe("template", () => {
+    it("appends to content", () => {
+        const t = template(null, button(null, "hello"));
+        expect(t.content.cloneNode(true).firstElementChild).to.be.instanceOf(HTMLButtonElement);
+    });
+});

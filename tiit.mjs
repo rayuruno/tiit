@@ -147,7 +147,11 @@ export function element(tag, attrs, ...children) {
             }
         });
     }
-    el.append(...children);
+    if (tag === "template") {
+        el.content.append(...children);
+    } else {
+        el.append(...children);
+    }
     return el;
 }
 
