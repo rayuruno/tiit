@@ -2,17 +2,17 @@ import { terser } from "rollup-plugin-terser";
 
 export default [
     {
-        input: "tiit.mjs",
+        input: "lib/tit.js",
         output: {
-            file: "tiit.cjs",
+            file: "dist/tit.cjs",
             format: "cjs",
         },
     },
     {
-        input: "tiit.mjs",
+        input: "lib/tit.js",
         output: {
-            name: "tiit",
-            file: "tiit.js",
+            name: "tit",
+            file: "dist/tit.js",
             format: "iife",
         },
         plugins: [terser()],

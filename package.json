@@ -1,29 +1,37 @@
 {
-    "name": "@tiib/tiit",
-    "version": "1.0.0",
+    "name": "@tiif/tit",
+    "version": "0.0.0",
     "description": "html tags but less",
-    "main": "tiit.mjs",
-    "browser": "tiit.js",
+    "type": "module",
+    "main": "lib/tit.js",
+    "browser": "dist/tit.js",
     "scripts": {
+        "test": "web-test-runner --config wtr.config.js",
         "bundle": "rollup -c"
     },
     "keywords": [
         "html",
         "js",
-        "dom",
-        "createElement"
+        "dom"
     ],
-    "author": "me@onuruyar.com",
+    "author": "ouyar@turnitin.com",
     "license": "MIT",
     "exports": {
-        "import": "./tiit.mjs",
-        "require": "./tiit.cjs"
+        "import": "./lib/tit.js",
+        "require": "./dist/tit.cjs"
     },
     "files": [
-        "tiit.cjs",
-        "tiit.mjs",
-        "tiit.js",
+        "dist/*",
+        "lib/tit.js",
         "package.json",
         "README.md"
-    ]
+    ],
+    "devDependencies": {
+        "@open-wc/testing": "^3.0.0-next.5",
+        "@web/dev-server": "^0.1.20-next.0",
+        "@web/test-runner": "^0.13.16-next.0",
+        "@web/test-runner-playwright": "^0.8.8",
+        "rollup": "^2.72.0",
+        "rollup-plugin-terser": "^7.0.2"
+    }
 }
